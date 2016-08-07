@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   getValueFromState: function(obj, path) {
     var stack = path.split('.');
     while(stack.length) {

@@ -14,7 +14,7 @@ var buffer = require('vinyl-buffer');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var historyApiFallback = require('connect-history-api-fallback')
+var historyApiFallback = require('connect-history-api-fallback');
 
 
 /*
@@ -25,7 +25,7 @@ gulp.task('styles',function() {
   // move over fonts
 
   gulp.src('css/fonts/**.*')
-    .pipe(gulp.dest('build/css/fonts'))
+    .pipe(gulp.dest('build/css/fonts'));
 
   // Compiles CSS
   gulp.src('css/style.styl')
@@ -70,7 +70,7 @@ function buildScript(file, watch) {
     debug : true,
     cache: {},
     packageCache: {},
-    transform:  [babelify.configure({stage : 0 })]
+    transform:  [babelify.configure({ plugins: ['transform-decorators-legacy'], presets: ['es2015', 'stage-1', 'react'] })]
   };
 
   // watchify() if watch requested, otherwise run browserify() once 
