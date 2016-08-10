@@ -62,6 +62,7 @@ class Inventory extends React.Component {
   }
 
   configureForUser(user) {
+    if(!user) { return; }
     const storeRef = ref.database().ref(this.props.params.storeId);
     storeRef.on('value', (snapshot)=> {
       var data = snapshot.val() || {};
